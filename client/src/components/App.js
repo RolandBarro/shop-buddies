@@ -1,9 +1,17 @@
+import NavMenuBar from './shared/NavMenuBar';
+import HeaderBar from './shared/HeaderBar';
+import ProductList from './content/ProductList';
+
 const App = () => {
   return (
-    <div className="container">
-      <p>App.js</p>
-      <a href="/utilities">Utilities</a>
+    <div>
+      <NavMenuBar />
+      <div className="container">
+        <HeaderBar />
+        <ProductList />
+      </div>
     </div>
+    
   );
 }
 
