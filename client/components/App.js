@@ -1,6 +1,6 @@
 import NavMenuBar from './shared/NavMenuBar';
 import HeaderBar from './shared/HeaderBar';
-import ProductList from './content/ProductList';
+import Listings from './contents/Listings';
 
 const App = () => {
   return (
@@ -8,7 +8,7 @@ const App = () => {
       <NavMenuBar />
       <div className="container">
         <HeaderBar />
-        <ProductList />
+        <Listings />
       </div>
     </div>
     

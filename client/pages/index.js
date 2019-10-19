@@ -1,9 +1,10 @@
 import React, { useRef } from 'react'
 
-import HtmlHead from '../src/components/HtmlHead';
-import App from '../src/components/App';
+import HtmlHead from '../components/HtmlHead';
+import App from '../components/App';
 
-import '../assets/styles/sass/custom.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/sass/custom.scss';
 
 const Index = () => {
   const htmlHead = useRef();

@@ -1,13 +1,16 @@
 import React from 'react';
-import {
-  Card,
-} from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import { Row } from 'react-bootstrap'
 
-export default class ProductList extends React.Component {
+import CarouselComponent from './Catalogue/Carousel';
+
+export default class Catalogues extends React.Component {
   render() {
     return (
       <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="../../../assets/images/test-products/ice-cream.jpg" />
+        <Row>
+          <CarouselComponent />
+        </Row>
         <Card.Body>
           <Card.Title>Card Title</Card.Title>
           <Card.Text>
