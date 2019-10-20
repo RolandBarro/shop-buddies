@@ -1,0 +1,8 @@
+@import './colors';
+
+nav.main-nav {
+  background-color: $PrimaryDark;
+  .navbar-nav a.nav-link {
+    color: $White;
+  }
+}

@@ -1,0 +1,8 @@
+@for $i from 1 through 100 {
+  .plum-wpx-#{$i} {
+    width: #{1 * $i}px ;
+  }
+  .plum-hpx-#{$i} {
+    height: #{1 * $i}px ;
+  }
+}

@@ -1,0 +1,30 @@
+@import './colors';
+
+.carousel.slide {
+  .carousel-indicators {
+    margin-bottom: 0;
+    li {
+      background-color: $PrimaryDark2;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+  }
+  .carousel-item {
+    img {
+      height: 340px
+    }
+    .carousel-caption {
+      background: $White;
+      opacity: .7;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      padding: 5px;
+      h3, p {
+        color: $PrimaryDark2;
+        opacity: 1;
+      }
+    }
+  }
+}
