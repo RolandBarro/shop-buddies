@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { Card } from 'react-bootstrap';
-import { Col } from 'react-bootstrap'
+import { Col, Collapse } from 'react-bootstrap';
 
 import CarouselComponent from './Catalogue/Carousel';
 
 export default function Catalogues(props) {
+
+  const [selected, setSelected] = useState(null);
 
   const listings = [
     {
@@ -77,19 +80,44 @@ export default function Catalogues(props) {
     }
   ];
 
+  function itemClickHandler(item) {
+    setSelected(item);
+  }
+
+  function getClass(id) {
+    if (id && selected) {
+      return id === selected.id ? 'active' : '';
+    }
+    
+    return '';
+  }
+
   return (
-    <div className="d-md-flex">
+    <Col md={12} className="catalogue d-md-flex">
       {listings &&
-        listings.map((item, index) => {
+        listings.map((item) => {
           return (
             <Col md={4} key={ `card-${item.id}` }>
-              <Card>
+              <Card
+                onClick={ () => itemClickHandler(item) }
+                className={ `mb-2 ${getClass(item.id)}` }
+              >
                 <CarouselComponent item={ item } />
               </Card>
+              { selected && (item.id === selected.id) &&
+                <Col md={12} className="px-0 border-top">
+                  <Collapse in={!!selected}>
+                    <div className="p-3">
+                      <p>ID: { `${selected.id}` }</p>
+                      <p>Name: { `${selected.listing}` }</p>
+                    </div>
+                  </Collapse>
+                </Col>
+              }
             </Col>
           );
         })
       }
-    </div>
+    </Col>
   );
 }
