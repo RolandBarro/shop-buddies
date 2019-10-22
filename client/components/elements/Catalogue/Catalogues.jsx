@@ -1,8 +1,12 @@
 import { useState } from 'react';
-import { Card } from 'react-bootstrap';
-import { Col, Collapse } from 'react-bootstrap';
+import {
+  Card,
+  Col,
+  Collapse,
+} from 'react-bootstrap';
 
-import CarouselComponent from './Catalogue/Carousel';
+import CarouselComponent from './Carousel';
+import Teams from '../Team/Team';
 
 export default function Catalogues(props) {
 
@@ -93,30 +97,29 @@ export default function Catalogues(props) {
   }
 
   return (
-    <Col md={12} className="catalogue d-md-flex">
-      {listings &&
-        listings.map((item) => {
-          return (
-            <Col md={4} key={ `card-${item.id}` }>
-              <Card
-                onClick={ () => itemClickHandler(item) }
-                className={ `mb-2 ${getClass(item.id)}` }
-              >
-                <CarouselComponent item={ item } />
-              </Card>
-              { selected && (item.id === selected.id) &&
-                <Col md={12} className="px-0 border-top">
-                  <Collapse in={!!selected}>
-                    <div className="p-3">
-                      <p>ID: { `${selected.id}` }</p>
-                      <p>Name: { `${selected.listing}` }</p>
-                    </div>
-                  </Collapse>
-                </Col>
-              }
-            </Col>
-          );
-        })
+    <Col>
+      <Col md={12} className="catalogue d-md-flex">
+        {listings &&
+          listings.map((item) => {
+            return (
+              <Col md={4} key={ `card-${item.id}` }>
+                <Card
+                  onClick={ () => itemClickHandler(item) }
+                  className={ `mb-2 ${getClass(item.id)}` }
+                >
+                  <CarouselComponent item={ item } />
+                </Card>
+              </Col>
+            );
+          })
+        }
+      </Col>
+      { selected &&
+        <Col md={12} className="px-0 border-top">
+          <Collapse in={!!selected}>
+            <Teams selected={ selected } />
+          </Collapse>
+        </Col>
       }
     </Col>
   );

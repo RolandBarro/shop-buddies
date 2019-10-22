@@ -1,0 +1,12 @@
+@import './colors';
+
+.badge {
+  &.badge-pill {
+    height: 40px;
+    width: 40px;
+    border: 1px solid $White;
+    &:not(:first-child) {
+      margin-left: -20px;
+    }
+  }
+}
